@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DishcoveryHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="Icons/culinary.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nova+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Share+Tech&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nova+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Share+Tech&display=swap" rel="stylesheet">
+
+
+</head>
+<body onload="displayCulinaryData()">
+<!-- <body> -->
+    <header>
+
+        <div id="logoAndNameContainer">
+
+            <img src="Icons/logoIcon.png" alt="LogoIcon" style="height: 80px;">
+
+            <h3>DISHCOVERYHUB</h3>
+
+        </div>
+
+        <ul id="links">
+
+            <a href="index.html"><li class="link active" >Find recipes</li></a>
+            <a href="index.html"><li class="link">Generate today's menu</li></a>
+            <a href="index.html"><li class="link">Find random recipes</li></a>
+
+        </ul>
+
+        <div id="contact">
+            <a href="index.html"><h4>Contact me</h4></a>
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+        <aside id="aside">
+
+
+            <button id="beruh" onclick="tick()">&#60;</button>
+
+            <div id="choiceOfDietContainer" class="choices">
+                <p>Please choose your diet:</p>
+
+            
+                <div class="inputs">
+                    <label><input type="checkbox" checked name="dietType" id="GlutenFree" class="check">Gluten Free</label>
+                    <label><input type="checkbox" name="dietType" id="Keto" class="check">Ketogenic</label>
+                    <label><input type="checkbox" name="dietType" id="Veget" class="check">Vegetarian</label>
+                    <label><input type="checkbox" name="dietType" id="LactoVege" class="check">Lacto-Vegetarian</label>
+                    <label><input type="checkbox" name="dietType" id="OvoVege" class="check">Ovo-Vegetarian</label>
+                    <label><input type="checkbox" name="dietType" id="Vegan" class="check">Vegan</label>
+                    <label><input type="checkbox" name="dietType" id="Pescetarian" class="check">Pescetarian</label>
+                    <label><input type="checkbox" name="dietType" id="Paleo" class="check">Paleo</label>
+                    <label><input type="checkbox" name="dietType" id="lowFoodmap" class="check">Low FODMAP</label>
+
+                </div>
+            </div>
+            <div id="choiceOfIntolerancyContainer" class="choices">
+                <p>Please choose your intolerancies:</p>
+                <div class="inputs">
+                    <label><input type="checkbox" name="intolerancyType" id="Dairy" class="check">Dairy</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Egg" class="check">Egg</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Gluten" class="check">Gluten</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Grain" class="check">Grain</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Peanut" class="check">Peanut</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Seafood" class="check">Seafood</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Sesame" class="check">Sesame</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Shellfish" class="check">Shellfish</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Soy" class="check">Soy</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Sulfite" class="check">Sulfite</label>
+                    <label><input type="checkbox" name="intolerancyType" id="TreeNut" class="check">Tree Nut</label>
+                    <label><input type="checkbox" name="intolerancyType" id="Wheat" class="check">Wheat</label>
+                </div>
+            </div>
+            <div id="typeOfDishContainer" class="choices">
+                <p>Please choose your type of dish:</p>
+                <div class="inputs">
+
+                    <label><input type="checkbox"checked name="dishType" id="Main" class="check">Main course</label>
+                    <label><input type="checkbox" name="dishType" id="Side" class="check">Side dish</label>
+                    <label><input type="checkbox" name="dishType" id="Appetizer" class="check">Appetizer</label>
+                    <label><input type="checkbox" name="dishType" id="Salad" class="check">Salad</label>
+                    <label><input type="checkbox" name="dishType" id="Bread" class="check">Bread</label>
+                    <label><input type="checkbox" name="dishType" id="Breakfast" class="check">Breakfast</label>
+                    <label><input type="checkbox" name="dishType" id="Soup" class="check">Soup</label>
+                    <label><input type="checkbox" name="dishType" id="Beverage" class="check">Beverage</label>
+                    <label><input type="checkbox" name="dishType" id="Sauce" class="check">Sauce</label>
+                    <label><input type="checkbox" name="dishType" id="Marinade" class="check">Marinade</label>
+                    <label><input type="checkbox" name="dishType" id="Fingerfood" class="check">Fingerfood</label>
+                    <label><input type="checkbox" name="dishType" id="Snack" class="check">Snack</label>
+                    <label><input type="checkbox" name="dishType" id="Drink" class="check">Drink</label>
+                </div>
+            </div>
+            <div id="maxTimeContainer" class="choices">
+
+                <p>Please choose max time to prepare dish (in minutes):</p>
+                <div class="inputs">
+                    <input type="range" min="10" max="200" value="50" class="slider" id="myRangeTime">
+                </div>
+                
+                <p>Max: <span id="sliderOutput" style="font-weight: bold;">50</span> minutes</p>
+            </div>
+
+            <div id="cuisineChoiceContainer" class="choices">
+
+                <p>Please choose your cuisine:</p>
+                <div class="inputs">
+                    <label><input type="checkbox" name="cuisineType" id="African" class="check">African</label>
+                    <label><input type="checkbox" name="cuisineType" id="Asian" class="check">Asian</label>
+                    <label><input type="checkbox" name="cuisineType" id="American" class="check">American</label>
+                    <label><input type="checkbox" name="cuisineType" id="British" class="check">British</label>
+                    <label><input type="checkbox" name="cuisineType" id="Cajun" class="check">Cajun</label>
+                    <label><input type="checkbox" name="cuisineType" id="Caribbean" class="check">Caribbean</label>
+                    <label><input type="checkbox" name="cuisineType" id="Chinese" class="check">Chinese</label>
+                    <label><input type="checkbox" name="cuisineType" id="EasternEu" class="check">Eastern European</label>
+                    <label><input type="checkbox" name="cuisineType" id="European" class="check">European</label>
+                    <label><input type="checkbox" name="cuisineType" id="French" class="check">French</label>
+                    <label><input type="checkbox" name="cuisineType" id="German" class="check">German</label>
+                    <label><input type="checkbox" name="cuisineType" id="Greek" class="check">Greek</label>
+                    <label><input type="checkbox" name="cuisineType" id="Indian" class="check">Indian</label>
+                    <label><input type="checkbox" name="cuisineType" id="Irish" class="check">Irish</label>
+                    <label><input type="checkbox" name="cuisineType" id="Italian" class="check">Italian</label>
+                    <label><input type="checkbox" name="cuisineType" id="Japanese" class="check">Japanese</label>
+                    <label><input type="checkbox" name="cuisineType" id="Jewish" class="check">Jewish</label>
+                    <label><input type="checkbox" name="cuisineType" id="Korean" class="check">Korean</label>
+                    <label><input type="checkbox" name="cuisineType" id="LatinAm" class="check">Latin American</label>
+                    <label><input type="checkbox" name="cuisineType" id="Mediterranean" class="check">Mediterranean</label>
+                    <label><input type="checkbox" name="cuisineType" id="Mexican" class="check">Mexican</label>
+                    <label><input type="checkbox" name="cuisineType" id="MiddleEast" class="check">Middle Eastern</label>
+                    <label><input type="checkbox" name="cuisineType" id="Nordic" class="check">Nordic</label>
+                    <label><input type="checkbox" name="cuisineType" id="Southern" class="check">Southern</label>
+                    <label><input type="checkbox" name="cuisineType" id="Spanish" class="check">Spanish</label>
+                    <label><input type="checkbox" name="cuisineType" id="Thai" class="check">Thai</label>
+                    <label><input type="checkbox" name="cuisineType" id="Vietnamese" class="check">Vietnamese</label>
+
+                </div>
+
+            </div>
+
+            <div id="instructionsChoiceContainer" class="choices">
+
+                <p>Please choose if your recipes should have instructions:</p>
+                <div class="inputs">
+                    <label><input type="radio" id="Yes" name="radioChoice" value="Yes" class="check">Yes</label>
+                    <label><input type="radio" id="No" name="radioChoice" value="No" class="check">No</label>
+                    
+            </div>
+                    
+                
+
+            </div>
+
+            <div id="btnContainer">
+                <button id="search">SEARCH</button>
+            </div>
+            
+
+        </aside>
+
+
+
+
+
+
+        <section id="section">
+            
+
+            
+            <div class="RecipeContainer">
+
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Julia Child's Ratatouille</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/648641-556x370.jpg">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/S.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/S.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/S.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/X.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/S.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>Julia Child's Ratatouille is a Mediterranean recipe that serves 6. This hor d'oeuvre has <b>199 calories</b>, <b>2g of protein</b>, and <b>17g of fat</b> per serving. For <b>92 cents per serving</b>, this recipe <b>covers 11%</b> of your daily requirements of vitamins and minerals. This recipe from Foodista has 3 fans. Head to the store and pick up zucchini, garlic, bell peppers, and a few other things to make it today. It is a good option if you're following a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> diet. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. With a spoonacular <b>score of 68%</b>, this dish is solid. <a href="https://spoonacular.com/recipes/julia-childs-ratatouille-1202455">Julia Child's Ratatouille</a>, <a href="https://spoonacular.com/recipes/julia-childs-vichyssoise-648643">Julia Child's Vichyssoise</a>, and <a href="https://spoonacular.com/recipes/julia-childs-eggplant-pizzas-1295381">Julia Child's Eggplant Pizzas</a> are very similar to this recipe.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 6</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">Mediterranean</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">gluten free</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">side dish</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;"></span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+                                
+                            <p></p><ol><li>Peel the eggplant and cut into lengthwise slices 3/8 in thick, about 3 inches long, and 1 inch wide. Scrub the zucchini, slice off the two ends, and cut into slices about the same size as the eggplant. Place the vegetables in a bowl and toss with 1 teaspoon salt. Let stand for 30 minutes. Drain. Dry each slice in a towel.</li><li>One layer at a time, saut the eggplant, and then the zucchini in hot olive oil for about a minute on each side to brown very lightly. Remove to a side dish.</li><li>In the same skillet, cook the onions and peppers slowly in olive oil for about 10 minutes, or until tender but not browned. Stir in the garlic and season to taste.</li><li>Slice the tomato pulp into 3/8-inch strips. Lay them over the onions and peppers. Season with salt and pepper. Cover the skillet and cook over low heat for 5 minutes, or until the tomatoes have begun to render their juice. Uncover, baste the tomatoes with the juices, raise heat and boil for several minutes, until juice has almost entirely evaporated.</li><li>Place a third of the tomato mixture in the bottom of the casserole and sprinkle over it 1 tablespoon of parsley. Arrange half of the eggplant and zucchini on top, then half the remaining tomatoes and parsley. Put in the rest of the eggplant and zucchini, and finish with the remaining tomatoes and parsley.</li><li>Cover the casserole and simmer over low heat for 10 minutes. Uncover, tip casserole and baste with the rendered juices. Correct seasoning, if necessary. Raise heat slightly and cook uncovered fro about 15 more, basting several times, until juices have evaporated leaving a spoonful or two of flavored olive oil.</li><li>Be careful of your heat; do not let the vegetables scorch in the bottom of the casserole.</li><li>Set aside uncovered. Reheat slowly at serving time, or serve cold.</li></ol><p></p>
+            
+                            </div>
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div>
+                    
+                    <div class="RecipeContainer">
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Potato Soup With Peppers and Olives</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/657000-556x370.jpg">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/S.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/S.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/S.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/X.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/S.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>If you want to add more <b>gluten free, dairy free, lacto ovo vegetarian, and whole 30</b> recipes to your repertoire, Potato Soup With Peppers and Olives might be a recipe you should try. One serving contains <b>205 calories</b>, <b>2g of protein</b>, and <b>16g of fat</b>. This recipe serves 4. For <b>50 cents per serving</b>, this recipe <b>covers 6%</b> of your daily requirements of vitamins and minerals. Not a lot of people made this recipe, and 3 would say it hit the spot. It works best as a hor d'oeuvre, and is done in roughly <b>45 minutes</b>. A mixture of roasted and marinated peppers, garlic, olive oil, and a handful of other ingredients are all it takes to make this recipe so yummy. It will be a hit at your <b>Autumn</b> event. It is brought to you by Foodista. All things considered, we decided this recipe <b>deserves a spoonacular score of 57%</b>. This score is solid. Try <a href="https://spoonacular.com/recipes/potato-salad-with-olives-and-peppers-186956">Potato Salad with Olives and Peppers</a>, <a href="https://spoonacular.com/recipes/potato-salad-with-olives-and-peppers-107025">Potato Salad With Olives and Peppers</a>, and <a href="https://spoonacular.com/recipes/thai-sweet-potato-soup-with-poblano-peppers-516697">Thai Sweet Potato Soup with Poblano Peppers</a> for similar recipes.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 4</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">No idea</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">gluten free</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">antipasti</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;">fall,winter</span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div></div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+                                
+                            <p></p><ol><li>In a saucepan, fry  garlic in olive oil until tender.</li><li>Add potatoes, oregano and a pinch of salt.</li><li>Cover with water (300 ml-400ml) and cook for 30 minutes or until potatoes are soft OR
+    To speed up cooking, cook the potatoes, with some water, in a microwave oven for 15 minutes on MAX.</li><li>Puree potatoes, peppers or pepper sauce and  4 olives in a blender.</li><li>Add water if too thick, season with pepper and salt.</li><li>Serve warm or hot, decorated with remaining olives.</li></ol><p></p>
+            
+                            </div>
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div><div class="RecipeContainer">
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Mixed Paella</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/652134-556x370.jpg">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/S.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/X.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/S.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>Mixed Paella could be just the <b>gluten free and dairy free</b> recipe you've been looking for. This main course has <b>394 calories</b>, <b>28g of protein</b>, and <b>10g of fat</b> per serving. This recipe serves 8 and costs $3.18 per serving. It is a <b>rather expensive</b> recipe for fans of European food. 2 people have tried and liked this recipe. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. Head to the store and pick up shrimp, peas, lemon, and a few other things to make it today. It is brought to you by Foodista. With a spoonacular <b>score of 80%</b>, this dish is good. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/mixed-paella-383976">Mixed Paella</a>, <a href="https://spoonacular.com/recipes/paella-for-four-a-wonderful-spanish-mixed-seafood-stew-654327">Paella for Four; A Wonderful Spanish Mixed Seafood Stew</a>, and <a href="https://spoonacular.com/recipes/frying-pan-paella-mixta-paella-with-seafood-and-meat-1250979">Frying Pan Paella Mixta (Paella with Seafood and Meat)</a>.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 8</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">Spanish</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">gluten free</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">lunch</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;"></span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div>
+            </div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+                                
+                            <p></p><ol><li>I a very large non-stick skillet or paella pan preheated over medium-high heat, add 2 teaspoons of your oil (you will need more oil if you're not using non-stick), garlic, red pepper flakes and rice. Saute for about 3 minutes. Add saffron, thyme, bay leaf and broth and bring to a boil. Cover and reduce heat to a simmer. Leave covered, do not stir.</li><li>In another non-stick skillet, heat to medium-high. Add chorizo and crumble as you saute. When the sausage is cooked through, add red pepper and onion. Salt and pepper to taste if needed. Saute until the onion is tender and remove from heat, set aside.</li><li>When the rice is nearly done (about 15 minutes) add fish and shrimp and press into rice. Add mussels, peas and sprinkle with lemon zest. Cover and continue to simmer until the rice is done and the mussels have opened. Discard any that do not.</li><li>Top with chorizo mixture and parsley. Serve with lemon wedges and a crusty bread.</li></ol><p></p>
+            
+                            </div>
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div><div class="RecipeContainer">
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Ginger-Lemon Panna Cotta with Brandied Berry Sauce</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/No" idea="">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/S.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/X.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/X.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>You can never have too many dessert recipes, so give Ginger-Lemon Panna Cotta with Brandied Berry Sauce a try. This gluten free recipe serves 6 and costs <b>$2.88 per serving</b>. One portion of this dish contains approximately <b>5g of protein</b>, <b>26g of fat</b>, and a total of <b>413 calories</b>. This recipe from Foodista requires vegetable oil, panna cotta, lemon peel, and vanilla bean. Not a lot of people really liked this Mediterranean dish. From preparation to the plate, this recipe takes around <b>45 minutes</b>. 9 people were impressed by this recipe. With a spoonacular <b>score of 31%</b>, this dish is rather bad. <a href="https://spoonacular.com/recipes/lemon-ginger-panna-cotta-cheesecake-blueberry-sauce-607508">lemon ginger panna cotta cheesecake + blueberry sauce</a>, <a href="https://spoonacular.com/recipes/lemon-panna-cotta-with-berry-compote-231584">Lemon Panna Cotta with Berry Compote</a>, and <a href="https://spoonacular.com/recipes/panna-cotta-with-berry-sauce-747598">Panna Cotta with Berry Sauce</a> are very similar to this recipe.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 6</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">Mediterranean</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">gluten free</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">dessert</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;"></span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div></div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+
+                            <p></p><ol><li>In a small sauce pan, heat cream, milk and vanilla bean including seeds to a simmer, do not boil.</li><li>Add 2 ginger tea bags.</li><li>Remove from heat, cover and steep for 20-30 minutes to infuse with flavor.</li><li>Remove vanilla bean and tea bags.</li><li>In a small bowl, add lemon juice and warm water.</li><li>Sprinkle in powdered gelatin (two envelopes) allow to set, takes about 7-10 minutes.</li><li>Return sauce pan to low heat and whisk in sugar and gelatin until dissolved thoroughly, 2-3 minutes.</li><li>Turn off heat and whisk in grated lemon zest and crme frache.</li><li>Pour mixture through sieve into 4 cup measuring cup (this makes it easy to pour into the oiled individual bowls.</li><li>)
+    Pour into individual bowls (I placed the on a large rimmed baking sheet and covered) chill for at least 5 hours or overnight before serving
+    Run thin sharp knife around edge of bowls, Set each bowl (one at a time) in hot water half-way up sides for 45 seconds to release, invert on to serving plate with a drizzle of the Brandied Berry Sauce and fresh berries, sprinkled with reserved shredded lemon zest.</li><li>Sauce Directions
+    Place 1 cup each of blackberries and blueberries in food process or blender with brown sugar and brandy.</li><li>Blend to puree.</li><li>In a small sauce pan, mix puree and spices and heat to low boil, turn down heat to low and simmer 15 minutes or until reduced by.</li><li>Remove from heat and press mixture through a fine sieve, removing all seeds.</li><li>Cool before serving.</li><li>Can be made a day ahead and chilled.</li><li>Sprinkle with reserved berries when plating.</li><li>Cooks Tips
+    You can used frozen berries, thaw thoroughly and reserve juices to incorporate into sauce.</li></ol><p></p>
+            
+                            </div>
+
+                            
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div><div class="RecipeContainer">
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Lemon Ricotta Blueberry Pancakes</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/649762-556x370.jpg">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/X.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/S.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/X.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/X.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>Lemon Ricotta Blueberry Pancakes is a <b>lacto ovo vegetarian</b> breakfast. This recipe serves 4 and costs $1.28 per serving. One portion of this dish contains about <b>14g of protein</b>, <b>9g of fat</b>, and a total of <b>409 calories</b>. This recipe is liked by 2 foodies and cooks. It is brought to you by Foodista. If you have baking powder, driscoll's blueberries, lemon zest, and a few other ingredients on hand, you can make it. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 35%</b>. This score is rather bad. Similar recipes include <a href="https://spoonacular.com/recipes/lemon-blueberry-and-ricotta-pancakes-1322661">Lemon Blueberry and Ricotta Pancakes</a>, <a href="https://spoonacular.com/recipes/lemon-blueberry-and-ricotta-pancakes-1358403">Lemon Blueberry and Ricotta Pancakes</a>, and <a href="https://spoonacular.com/recipes/lemon-blueberry-and-ricotta-pancakes-1275043">Lemon Blueberry and Ricotta Pancakes</a>.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 4</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">No idea</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">lacto ovo vegetarian</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">morning meal</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;"></span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div></div></div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+                                
+                            <p></p><ol><li>Preheat oven to 200F.</li><li>Whisk flour, sugar, baking powder and salt in a medium bowl until well combined. Set aside. In a separate large bowl, whisk together ricotta, egg yolks, milk, lemon zest and vanilla. Stir flour mixture into egg mixture just until combined.</li><li>Beat egg whites with an electric mixer at high speed until soft peaks form. Gently fold beaten egg whites into pancake mixture just until blended.</li><li>Lightly grease a large nonstick griddle or skillet over medium heat. Pour heaping 1/4 cup batter onto griddle and spread to make about 4-inch pancake. Drop about 10 blueberries onto each pancake. Cook 3 minutes, or until edges are dry and bottom is golden. Flip pancake and cook 2 to 3 minutes longer or until lightly golden on both sides. Adjust heat as needed to prevent burning. Place pancakes on a heatproof platter and keep warm in oven. Repeat with remaining batter and blueberries. Garnish with additional blueberries if desired.</li></ol><p></p>
+            
+                            </div>
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div><div class="RecipeContainer">
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Healthy Mint Brownies</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/No" idea="">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/X.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/X.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/X.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>You can never have too many dessert recipes, so give Healthy Mint Brownies a try. This recipe serves 12. For <b>$1.03 per serving</b>, this recipe <b>covers 9%</b> of your daily requirements of vitamins and minerals. One serving contains <b>265 calories</b>, <b>5g of protein</b>, and <b>12g of fat</b>. This recipe from Foodista requires oil, pink salt, coconut sugar, and baking powder. A few people really liked this American dish. 24 people have made this recipe and would make it again. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. With a spoonacular <b>score of 39%</b>, this dish is not so tremendous. If you like this recipe, take a look at these similar recipes: <a href="https://spoonacular.com/recipes/mint-brownies-977907">Mint Brownies</a>, <a href="https://spoonacular.com/recipes/mint-brownies-1572749">Mint Brownies</a>, and <a href="https://spoonacular.com/recipes/mint-brownies-505791">Mint Brownies</a>.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 12</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">American</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">No idea</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">dessert</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;"></span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div></div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+                                
+                            <p></p><ol><li>Directions:</li><li>Preheat the oven to 350 degrees. Line a 9 by 9 or 7 by 11 baking sheet with parchment paper and set aside.</li><li>Combine the flax, applesauce and almond milk together in a small bowl. Set aside to allow to thicken. In a food processor, combine the blueberries, pear, black beans and oil. Pulse until the mixture become very smooth. Next, add the extracts and process until fully combined. Remove the contents from processor into a medium sized mixing bowl. Add the coconut sugar, cocoa, baking powder, soda, and salt and mix. Add the flour with the chocolate chips and mix until just combined. Pour the batter into your prepared dish and bake at 350 for 44-45 minutes.</li><li>Remove from the oven and allow to cool for at least 50 minutes. If you would like, place the brownies in the fridge for 20 or 30 minutes to speed up cooling time. While the brownies cool, start on your mint filling.</li><li>In a small bowl, combine the soft avocado with full fat coconut milk or heavy cream. Beat on high for about 5 minutes until the mixture is fluffy and smooth. Add the powdered xylitol and mix well. Add peppermint extract and coloring if desired, and beat until all incorporated. Once the mixture is perfectly fluffy and creamy, add the flour and mix until just combined. The mixture should be thick and smooth but still easy to spread. Spread the mixture evenly over the cooled brownies and place in the fridge for 10 minutes, until the mint filling has firmed.</li><li>Next, melt the chocolate. Add the oil to the melted chocolate and stir to combine. Remove the brownies from the fridge and pour the melted chocolate over the brownies, gently and quickly spread the chocolate evenly over the brownies. The mint filling should be cold so the warm chocolate doesnt melt the mint filling, but the chocolate will cool quickly once it touches the cold mint. Make sure to work quickly so the chocolate layer will be even. Return the brownies to the fridge to cool for another 5 minutes until the chocolate is set.</li><li>Cut the brownies after the 5 minutes with a sharp knife. Serve brownies chilled or at room temperature. Store any left overs in an airtight container in the refrigerator.</li><li>NOTE: Once the chocolate layer has firmed, be sure to cut all the brownies immediately with a sharp knife. I cut some of the brownies when they were really, really cold, and they didnt cut clean and pretty.</li><li>*For those who are not concerned with gluten content, wheat or white flour would work okay as well. For wheat, decrease the amount by 1 tablespoon. For the filling, be sure to use a white color flour to keep the mint filling a bright pretty green color.</li><li>**You can use any kind of chocolate you like, but dark chocolate gives a wonderful flavor to the peppermint and sugar free dark chocolate is the easiest to find.</li></ol><p></p>
+            
+                            </div>
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div><div class="RecipeContainer">
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Farfalle with Shrimps, Tomatoes Basil Sauce</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/642594-556x370.jpg">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/X.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/X.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/X.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>Farfalle with Shrimps, Tomatoes Basil Sauce requires about <b>45 minutes</b> from start to finish. For <b>$2.81 per serving</b>, you get a main course that serves 4. Watching your figure? This pescatarian recipe has <b>570 calories</b>, <b>38g of protein</b>, and <b>8g of fat</b> per serving. Not a lot of people made this recipe, and 9 would say it hit the spot. Head to the store and pick up butter, farfalle pasta by barilla, shrimps, and a few other things to make it today. It is brought to you by Foodista. Taking all factors into account, this recipe <b>earns a spoonacular score of 60%</b>, which is good. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/farfalle-with-fresh-tomatoes-basil-and-mozzarella-642585">Farfalle with fresh tomatoes, basil and mozzarella</a>, <a href="https://spoonacular.com/recipes/shrimps-cherry-tomatoes-and-rocket-8886">Shrimps, Cherry Tomatoes And Rocket</a>, and <a href="https://spoonacular.com/recipes/farfalle-with-broccoli-carrots-and-tomatoes-1364645">Farfalle With Broccoli, Carrots and Tomatoes</a>.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 4</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">No idea</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">pescatarian</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">side dish</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;"></span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div></div></div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+                                
+                            <p></p><ol><li>Bring a large pot of salted water to a boil and cook the pasta to al dente.</li><li>Meanwhile in a large frying pan, melt the butter and add the tomatoes. Saut over medium high heat for about 1 minute.</li><li>Add the cleaned shrimps and cook until light pink.</li><li>Add salt and pepper to taste.</li><li>Add the basil and stir lightly.</li><li>When the pasta is ready add it to the large skillet with the tomatoes and shrimps. Add the butter and mix well.</li><li>Serve immediately nice and hot.</li></ol><p></p>
+            
+                            </div>
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div><div class="RecipeContainer">
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Meatless Eggs Benedict</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/646982-556x370.jpg">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/X.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/S.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/X.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/X.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>If you want to add more <b>lacto ovo vegetarian</b> recipes to your repertoire, Meatless Eggs Benedict might be a recipe you should try. This recipe serves 2 and costs $1.74 per serving. One serving contains <b>605 calories</b>, <b>21g of protein</b>, and <b>45g of fat</b>. It is brought to you by Foodista. 2 people were glad they tried this recipe. Head to the store and pick up ground pepper, muffins, cream, and a few other things to make it today. From preparation to the plate, this recipe takes around <b>25 minutes</b>. It works well as a breakfast. Overall, this recipe earns a <b>solid spoonacular score of 43%</b>. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/eggs-benedict-deviled-eggs-741308">Eggs Benedict Deviled Eggs</a>, <a href="https://spoonacular.com/recipes/meatless-hash-and-eggs-78414">Meatless Hash and Eggs</a>, and <a href="https://spoonacular.com/recipes/eggs-benedict-310151">Eggs Benedict</a>.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 2</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">No idea</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">lacto ovo vegetarian</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">morning meal</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;"></span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div></div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+                                
+                            <p></p><ol><li>Bring a shallow pan of water and the vinegar to a boil.</li><li>To poach the eggs, break each egg into a cup, and slide into the boiling water. By putting it in a cup first, it keeps the eggs neater in the boiling water.</li><li>Cook for about 2-3 minutes, remove with a slotted spoon and drain on a towel.</li><li>Toast the English muffins.</li><li>For the hollandaise sauce, put the egg yolks, lemon juice and salt in a food processor and blend until smooth.</li><li>Melt the butter in a pan on a very low flame, then add it to the food processor and blend until well mixed.</li><li>Place the sauce in a double boiler and simmer for 2-3 minutes, stirring it constantly- so it doesnt start to clump and turn into scrambled eggs. (If you dont have a double boiler- like me- put it in a non-stick pan and make the flame super low. Pay extra attention to constantly stirring it.</li><li>Stir in the cream and season with pepper.</li><li>Place a poached egg on each muffin slice and top with the sauce and chopped fresh chives.</li></ol><p></p>
+            
+                            </div>
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div><div class="RecipeContainer">
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Peppermint Brookie Pies - gluten free, dairy free</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/655668-556x370.jpg">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/S.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/X.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/S.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>Peppermint Brookie Pies - gluten free, dairy free is a dessert that serves 16. One portion of this dish contains roughly <b>3g of protein</b>, <b>7g of fat</b>, and a total of <b>237 calories</b>. For <b>60 cents per serving</b>, this recipe <b>covers 4%</b> of your daily requirements of vitamins and minerals. It will be a hit at your <b>Christmas</b> event. A mixture of rice flour, tapioca starch, candy canes, and a handful of other ingredients are all it takes to make this recipe so scrumptious. 6 people have tried and liked this recipe. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. It is brought to you by Foodista. It is a good option if you're following a <b>gluten free, dairy free, and fodmap friendly</b> diet. All things considered, we decided this recipe <b>deserves a spoonacular score of 17%</b>. This score is not so outstanding. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/thousand-island-dressing-gluten-free-corn-free-dairy-free-soy-free-nut-free-gum-free-and-refined-sugar-free-512186">Thousand Island Dressing (Gluten-Free, Corn-Free, Dairy-Free, Soy-Free, Nut-Free, Gum-Free and Refined Sugar-Free)</a>, <a href="https://spoonacular.com/recipes/crock-pot-peppermint-fudge-556827">Crock Pot Peppermint Fudge:</a>, and <a href="https://spoonacular.com/recipes/skinny-double-chocolate-muffins-vegan-gluten-free-dairy-free-egg-free-and-refined-sugar-free-1149614">Skinny Double Chocolate Muffins-Vegan, Gluten Free, Dairy Free, Egg Free and Refined Sugar Free</a>.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 16</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">No idea</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">gluten free</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">dessert</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;">christmas</span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+                                
+                            <p></p><ol><li>Preheat oven to 375 F.</li><li>For the pies:</li><li>Fill a medium saucepan (relatively the same size as the bowl) about 1/3 full with water and set over medium heat.</li><li>In a medium glass bowl, combine the bittersweet chocolate, semi-sweet chocolate and shortening.</li><li>When the water simmers, place the bowl of chocolate and shortening over the simmering water and lower the heat. Make sure your bowl does not touch the simmering water. The more you stir the shinier your cookies will be.</li><li>When the chocolate and shortening has melted, remove the bowl from the heat; stir to assure it's completely mixed. Set aside to cool a few minutes.</li><li>Meanwhile, in another bowl, whisk together the sugar, eggs, vanilla paste, and espresso. Set aside.</li><li>In another bowl, sift together the flour, cocoa powder, baking powder and salt. Set aside.</li><li>Whisk the melted chocolate into the sugar/egg mixture.</li><li>Add the flour mixture, whisk. Only whisk until blended, over-mixing can affect the texture of the pies.</li><li>Line 2 baking sheets with parchment paper, no need to grease the paper.</li><li>Drop a heaping tablespoon of batter (keeping the shapes as round as possible) onto the baking sheets. You are aiming for rounds that are about 2 inches in diameter. Take care to leave some room (about 2 inches) between each one to allow for spreading that will occur as they bake.</li><li>Bake for 6 to 8 minutes.</li><li>Leave in the oven an additional minute if they seem under baked. The cookie will have a brownie like crackling surface, and will feel soft, when ready.</li><li>Allow them to cool for about 10 minutes before gently lifting them off the baking sheet and onto a flat surface for piping the filling.</li><li>For the Filling:</li><li>Combine 1 1/4 cups sugar and the water in a small saucepan.</li><li>Heat over medium heat with a candy thermometer attached to the inside of the saucepan, and stir to dissolve. </li><li>When the mixture reaches 220 degrees F it is ready for the stand mixer.</li><li>Meanwhile, in a bowl of a stand mixer fitted with the whisk attachment, whisk the eggs on medium speed until it begins to look very foamy(about 3 minutes).</li><li>Avoiding the whisk, gradually add the remaining 2 tablespoons PLUS 1 teaspoon sugar. </li><li>Increase the speed to high and whip until soft white peaks are formed.</li><li>At this point check to see if your sugar has cooled. If it has cooled, turn heat back on to high until it comes back up to 220 degrees F just before adding to stand mixer.</li><li>When egg whites are at a soft peak stage resembling marshmallow fluff,slowly add the hot sugaralong the edge of the mixer avoiding the whisk.</li><li>Continue to whisk on high until the bowl has cooled, about 5 minutes.</li><li>Add peppermint extract, whisk another 30 seconds.</li><li>Refrigerate for 5 minutes before transferring to a piping bag with a plain tip attached or a large ziploc bag with one corner cut a 1/4 inch.</li><li>For Garnish:</li><li>Place candy canes between layers of wax paper, then sandwich between a dish towel.</li><li>Using a meat tenderizer, or the back of a dry measuring cup, pound the candy cane until broken up into very small pieces.</li><li>Make sure the candy cane is between wax paper first, otherwise, the candy cane will stick to the dish towel.</li><li>Assemble:</li><li>Turn the brookie cookies upside down, pipe about 2 tablespoons of filling onto half of the cookies.</li><li>Cover each filled cookie with a dry cookie, press down just enough so that filling adheres to the cookie.</li><li>Sprinkle crushed candy cane around the brookie pie edges.</li><li>Serve chilled or at room temperature.</li></ol><p></p>
+            
+                            </div>
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div><div class="RecipeContainer">
+                <div class="visiblePart">
+                        <button id="toggleButton" class="toggle-button">▼</button> <!-- Strzałka w dół -->
+                <div class="titleAndImage">
+                        <p id="title" style="font-size: 1.4rem; font-weight: bold;">Peppery Absorption-Cooked Red-Wine Capellini</p>
+                        <img alt="Here will be photo" style="width: 370px; height: auto; object-fit: cover;" src="./DishcoveryHub_files/655706-556x370.jpg">
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Gluten free: </p> <img src="./DishcoveryHub_files/X.png" alt="Gluten free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegan: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegan" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Vegetarian: </p> <img src="./DishcoveryHub_files/X.png" alt="Vegetarian" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Healthy: </p> <img src="./DishcoveryHub_files/S.png" alt="Healthy" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Dairy free: </p> <img src="./DishcoveryHub_files/S.png" alt="Dairy free" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Popular: </p> <img src="./DishcoveryHub_files/X.png" alt="Popular" style="height: 30px;">
+            </div>
+                    
+            <div class="booleanInfoSmallContainer">
+                <p>Cheap: </p> <img src="./DishcoveryHub_files/X.png" alt="Cheap" style="height: 30px;">
+            </div>
+    
+                        
+                    </div>
+    
+                    <div class="dishRec">
+                        <p>Peppery Absorption-Cooked Red-Wine Capellini is a <b>dairy free</b> recipe with 4 servings. One serving contains <b>681 calories</b>, <b>21g of protein</b>, and <b>13g of fat</b>. For <b>$3.94 per serving</b>, this recipe <b>covers 36%</b> of your daily requirements of vitamins and minerals. 4 people were impressed by this recipe. It works well as a pretty expensive main course. It is brought to you by Foodista. If you have cayenne pepper, flat parsley leaves, half alarge onion, and a few other ingredients on hand, you can make it. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 92%</b>. This score is tremendous. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/slow-cooked-lamb-shanks-in-red-wine-1244493">Slow Cooked Lamb Shanks in Red Wine</a>, <a href="https://spoonacular.com/recipes/slow-cooked-lamb-shanks-in-red-wine-97369">Slow Cooked Lamb Shanks in Red Wine</a>, and <a href="https://spoonacular.com/recipes/peposo-slow-cooked-peppery-veal-stew-57652">Peposo - Slow Cooked, Peppery Veal Stew</a>.</p>
+                    </div>
+    
+                    <div class="BooleanInfoMainContainer">
+    
+                        <div class="booleanInfoSmallContainer">
+                            <p>Servings: <span style="font-weight: bold;"> 4</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of cuisine: <span style="font-weight: bold;">No idea</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of diet: <span style="font-weight: bold;">dairy free</span> </p>
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Type of dish: <span style="font-weight: bold;">side dish</span></p> 
+                        </div>
+                        <div class="booleanInfoSmallContainer">
+                            <p>Best occasion to serve: <span style="font-weight: bold;"></span> </p> 
+                        </div>
+                        
+    
+                    </div>
+                </div></div></div>
+                    <div class="notVisible">
+    
+                        <div id="additionalContent" class="additional-content">
+                            <!-- Dodatkowa zawartość, która będzie rozwijana -->
+                            <div class="dishRec">
+                                
+                            <p></p><ol><li>1.</li><li>Preheat the oven to 375F.</li><li>Break the capellini into approximately 3-inch lengths.</li><li>Spread the pasta on a baking sheet, slide it into the oven, and toast, tossing occasionally with tongs, until golden brown, about 12 minutes.</li><li>2.</li><li>Meanwhile, heat the olive oil in a large pot (at least 5 1/2 quarts) with a lid over medium heat.</li><li>Add the onion, garlic, and a pinch of salt and cook, allowing them only to soften and grow aromatic but not brown, about 5 minutes.</li><li>Increase the heat to medium-high and add the zucchini and another pinch of salt.</li><li>Saut until the zucchini is well browned, about 5 more minutes.</li><li>3.</li><li>Place the noodles on top of the zucchini mixture.</li><li>Layer the asparagus and 1 cup of the cherry tomatoes on top of that and sprinkle in the smoked paprika, black pepper, cayenne pepper, oregano, and rosemary.</li><li>Pour the red wine and  cup of water over the top.</li><li>Toss as best you can with tongs; it will be hard at first because the noodles are stiff.</li><li>Return the heat to medium and cover the pot.</li><li>4.</li><li>Every 3 minutes, remove the lid and toss the pasta.</li><li>The total cooking time will be 8 to 12 minutes.</li><li>Toward the end, taste a noodle each time you remove the lid to see if it is done.</li><li>If not, and there isnt any moisture left on the bottom of the pot, add a bit more wine or water, about 1/3 cup.</li><li>5.</li><li>When the noodles are done to your liking, taste and make any final adjustments to the seasoning.</li><li>Transfer to serving bowls.</li><li>Garnish with the remaining 1/2 cup cherry tomatoes, the parsley, and another grind of black pepper.</li><li>Serve immediately.</li></ol><p></p>
+            
+                            </div>
+                            
+                        </div>
+    
+    
+                    </div>
+                    
+                    
+                    
+                    </div></div>
+
+
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

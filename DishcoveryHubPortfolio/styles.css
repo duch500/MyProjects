@@ -1,0 +1,449 @@
+#beruh{
+    position: fixed;
+    background-color: #dda697;
+    font-size: 2rem;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 13.5%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    z-index: 3;
+    transition: left 0.3s ease;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    /* border: 1px solid red; */
+    scroll-behavior: smooth;
+    user-select: none;
+    
+}
+
+header {
+    min-height: 100px;
+    width: 100%;
+    padding: 0 10px;
+    background-color: #694F8E;
+    color: #EEEEEE;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logoAndNameContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+}
+
+#logoAndNameContainer h3 {
+    font-family: "Nova Mono", monospace;
+}
+
+#links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    width: 70%;
+    gap: 100px;
+    
+}
+
+.link {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 10px;
+    z-index: 1;
+    color: #FFDFD6;
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    background-color: #FFDFD6;
+    transition: width 0.5s ease-in-out;
+}
+.link active::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    background-color: #FFDFD6;
+}
+
+.link:hover::after {
+    width: 95%;
+}
+
+#contact {
+    width: 10%;
+    text-align: center;
+   
+}
+
+a {
+    text-decoration: none;
+    color: #EEEEEE;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Odstęp między aside a section */
+    transition: gap 0.3s ease;
+    
+}
+
+aside {
+    position: relative;
+    left: 0px;
+    width: 15%;
+    min-height: 100vh;
+    height: auto;
+    /* background-color: rgb(243, 243, 243);
+     */
+     background-color: #FFDFD6;
+    padding: 20px 10px;
+    color: black;
+    transition: left 0.3s ease;
+}
+
+
+.choices {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.choices p {
+    font-size: 1.5rem;
+}
+
+.inputs {
+    display: flex;
+
+    flex-direction: column;
+    gap: 10px;
+
+    justify-content: flex-start;
+    
+}
+
+label:hover{
+    background-color: #b6b6b6;
+}
+label{
+    transition: 0.3s;
+
+}
+.inputs label {
+    display: flex;
+    align-items: center;
+    padding: 5px 3px;
+    cursor: pointer;
+
+    
+}
+
+input[type="checkbox"], input[type="radio"] {
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid rgb(0, 0, 0);
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+
+
+
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+  }
+  
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #E3A5C7; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 20px;
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    border-radius: 50%;
+    width: 30px; /* Set a specific slider handle width */
+    height: 30px; /* Slider handle height */
+    background: #5f349b; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #5f349b; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+
+  #instructionsChoiceContainer{
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+#btnContainer{
+    width: 100%;
+    text-align: center;
+}
+
+#search{
+    color: white;
+    background-color: #694F8E;
+    outline: none;
+    border: none;
+    width: 50%;
+    height: 5vh;
+    font-size: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 2px 0px 2px 2px rgb(59, 59, 59);
+
+}
+
+
+section {
+    width: 78%; /* Dostosuj szerokość według potrzeb */
+    position: relative;
+    left: 0;
+    margin-top: 40px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2vh;
+    transition: left 0.3s ease, transform 0.3s ease, width 0.3s ease;
+}
+
+
+.RecipeContainer {
+
+    margin: 20px auto;
+
+    position: relative;
+    overflow: hidden;
+    min-height: 9vh;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 2px 2px rgb(231, 231, 231);
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+    transition: max-height 0.5s ease-in-out;
+
+}
+
+.visiblePart{
+height: auto;
+position: relative;
+display: flex;
+flex-flow: row nowrap;
+justify-content: space-between;
+gap: 20px;
+width: 100%;
+
+}
+.titleAndImage {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    width: 370px;
+    height: 100%;
+}
+
+.BooleanInfoMainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 270px;
+}
+
+.booleanInfoSmallContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.instruction{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+
+}
+.dishRec {
+    width: 65%;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    height: auto;
+}
+.dishRec a{
+    color: #5f349b;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+.dishRec li{
+    list-style: none;
+    font-size: 1.3rem;
+    background-image: url('Icons/fork.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+    padding-left: 30px;
+    margin-bottom: 5px;
+}
+.neededStuff li {
+    list-style: none;
+    background-image: url('Icons/chef.png');
+    background-size: 20px 20px;
+    font-size: 1.3rem;
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+    padding-left: 30px;
+    margin-bottom: 5px;
+}
+
+.additional-content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 0; /* Początkowo niewidoczne */
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out; /* Płynne rozwijanie i zwijanie */
+    padding: 0 10px; /* Padding tylko po rozszerzeniu */
+}
+
+.additional-content.expanded {
+    max-height: 1000px; /* Wysokość dostosowana do zawartości */
+    padding: 10px; 
+}
+
+.toggle-button {
+    position: absolute;
+    bottom: -10px; /* Przesuwa przycisk na dół */
+    right: 0;
+    background-color: #694F8E;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.toggle-button:hover {
+    background-color: #563b6c;
+}
+
+
+
+.check {
+    position: relative;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    appearance: none;
+    background-color: #FFDFD6;
+    transition: all .3s;
+   }
+   
+   .check::before {
+    content: '';
+    position: absolute;
+    border: solid #fff;
+    display: block;
+    width: .3em;
+    height: .6em;
+    border-width: 0 .2em .2em 0;
+    z-index: 1;
+    opacity: 0;
+    right: calc(50% - .3em);
+    top: calc(50% - .6em);
+    transform: rotate(0deg);
+    transition: all .3s;
+    transform-origin: center center;
+    margin-top: 2px;
+   }
+   
+   .check:checked {
+    animation: a .3s ease-in forwards;
+    background-color: #5f349b;
+   }
+   
+   .check:checked::before {
+    opacity: 1;
+    transform: rotate(405deg);
+   }
+   
+   @keyframes a {
+    0% {
+     opacity: 1;
+     transform: scale(1) rotateY(0deg);
+    }
+   
+    50% {
+     opacity: 0;
+     transform: scale(.8) rotateY(180deg);
+    }
+   
+    100% {
+     opacity: 1;
+     transform: scale(1) rotateY(360deg);
+    }
+   }

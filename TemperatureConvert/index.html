@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature conversion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <form>
+
+        <h1>Temperature conversion</h1>
+
+        <input id="numberToConv" type="number" placeholder="Enter your value here...">
+
+        
+
+        <div class="tempContainer">
+            <input name="temperatureChoice" id="toFahrenheit" type="radio">
+            <label for="toFahrenheit">Celsius ➡️ Fahrenheit</label>
+            <br><br><br>
+            <input name="temperatureChoice" id="toCelsius" type="radio">
+            <label for="toCelsius">Fahrenheit ➡️ Celsius</label>
+        </div>
+
+        <button id="submitConv" type="button" onclick="Convert()">Convert</button>
+
+        <p id="answer" style="font-size: 30px;">Select unit!</p>
+        
+
+
+
+    </form>
+
+
+    
+    
+    
+<script src="script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial;
+    /* border: 1px solid red; */
+    font-size: 24px;
+    user-select: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 99vh;
+    
+    
+}
+main{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    align-items: center;
+    width: 60%;
+    
+}
+main > h1{
+    margin-top: 3.5rem;
+    font-size: 64px;
+}
+#container{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+#buttonRoll{
+    width: 20%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px 3px;
+    background-color: rgb(0, 132, 255);
+    cursor: pointer;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    transition: 0.2s;
+    font-weight: bold;
+    border: none;
+}
+
+#buttonRoll:hover{
+    background-color: rgb(0, 89, 255)
+}
+#buttonRoll:active{
+    transform:scale(90%);
+}
+
+
+#inputNumber{
+    width: 20%;
+    vertical-align: middle;
+    padding: 5px;
+    font-size: 14px;
+}
+#numberOfDices{
+    margin-top: -3rem;
+}
+img{
+
+    width: 20%;
+}
+#spaceForDices, #numberOfDices{
+    margin-top: -3rem;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    word-wrap: break-word; /* Dodane */
+    overflow-wrap: break-word;
+}
+
+#numberOfDices{
+    word-wrap: break-word; /* Dodane */
+    overflow-wrap: break-word;
+}

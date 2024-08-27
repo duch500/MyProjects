@@ -1,0 +1,89 @@
+body {
+    font-size: 20px;
+    font-family: 'Poppins', serif;
+    background: linear-gradient(90deg, #e7eaf6, #a2a8d3, #38598b, #113f67);
+    color: whitesmoke;
+    padding: 0px;
+    margin: 0;
+}
+
+p {
+    margin: 0px;
+}
+
+#title {
+    margin: 20px auto 10px auto;
+    text-align: center;
+}
+
+#description {
+    margin: 10px auto;
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+#main {
+    background-color: #113f67;
+    margin: 30px;
+    width: 40em;
+    margin: 40px auto;
+    border-radius: 5px;
+    opacity: 0.75;
+}
+
+form {
+    padding: 20px 30px;
+}
+
+#survey-form p {
+    margin: 20px auto 5px auto;
+}
+
+#email, #number, #name, #dropdown, #select-feature select, textarea {
+    margin: 5px auto 10px auto;
+    height: 2.5em;
+    border-radius: 0.3em;
+    border: none;
+    width: 100%;
+    align-items: center;
+}
+
+#dropdown {
+    padding-left: 10px;
+}
+
+#radio label {
+    display: block;
+    margin: 10px auto;
+}
+
+#checkboxes label {
+    display: block;
+    margin: 10px auto;
+}
+
+textarea {
+    min-height: 8em;
+    width: 100%;
+    border-radius: 0.3em;
+    border: none;
+}
+
+#submit {
+    background-color: #37AF65;
+    border: none;
+    margin: 5px auto 10px auto;
+    height: 3em;
+    border-radius: 0.3em;
+    width: 100%;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    font-size: large;
+    transition: 0.3s;
+}
+
+#submit:hover {
+    background-color: #267A46;
+}

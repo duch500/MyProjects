@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+
+    <main>
+        <div id="main-survey">
+            <h1 style="text-align: center; font-size: 32px; margin-top: 15px; letter-spacing: 3px;">Survey Form</h1>
+
+            <form>
+
+                <div class="enter-data">
+                    <label for="fname">First name:*</label>
+                    <input id="fname" placeholder="Enter your first name" required>
+                </div>
+
+                <div class="enter-data">
+                    <label for="lname">Last name*</label>
+                    <input id="lname" placeholder="Enter your last name" required>
+                </div>
+
+                <div class="enter-data">
+                    <label for="age">Age*</label>
+                    <input id="age" type="number" min="18" max="125"   placeholder="Enter your age">
+                </div>
+
+                <div class="enter-data">
+                    <label for="option">Which option best describes you?*</label>
+                        <select id="option" required>
+                            <option value="Student">Student</option>
+                            <option value="Unemplyoed">Unemployed</option>
+                            <option value="Intern">Intern</option>
+                            <option value="Other">Other</option>
+                         
+                        </select>
+                </div>
+
+                <div class="enter-data-radio">
+
+                    <label>Do you like this webpage?</label>
+
+                    <div class="answer-radio">
+
+                        <input type="radio" value="Yes" name="answer" checked>
+                        <label for="Yes">Yes!</label>
+
+                    </div>
+
+                    <div class="answer-radio">
+
+                        <input type="radio" value="Nah" name="answer">
+                        <label for="Nah">Nah!</label>
+
+                    </div>
+
+                    <div class="answer-radio">
+
+                        <input type="radio" value="idk" name="answer">
+                        <label for="idk">I don't know!</label>
+
+                    </div>
+
+                </div>
+
+                <div class="enter-data-checkbox">
+
+                    <label>Languages and Frameworks known
+                        <small>(Check all that apply)</small>
+                    </label>
+
+                <div class="checkboxes">
+                    <label for="inp-1">
+                        <input type="checkbox" name="inp"> C
+                          </input>
+                      </label>
+                    <label for="inp-2">
+                        <input type="checkbox" name="inp"> C++
+                          </input>
+                    </label>
+                    <label for="inp-3">
+                        <input type="checkbox" name="inp"> C#
+                          </input>
+                    </label>
+                    <label for="inp-4">
+                        <input type="checkbox" name="inp"> Java
+                          </input>
+                    </label>
+                    <label for="inp-5">
+                        <input type="checkbox" name="inp"> Python
+                          </input>
+                    </label>
+                    <label for="inp-6">
+                        <input type="checkbox" name="inp" > JavaScript
+                          </input>
+                    </label>
+                    <label for="inp-7">
+                        <input type="checkbox" name="inp"> React
+                          </input>
+                    </label>
+                    <label for="inp-7">
+                        <input type="checkbox" name="inp"> Angular
+                          </input>
+                    </label>
+                    <label for="inp-7">
+                        <input type="checkbox" name="inp"> Django
+                          </input>
+                    </label>
+                    <label for="inp-7">
+                        <input type="checkbox" name="inp"> Spring
+                          </input>
+                    </label>
+                </div>
+                  
+                <div class="textarea-input">
+
+                    <label>Any suggestions?</label>
+
+                    <textarea placeholder="Comment your suggestions here" maxlength="1000"></textarea>
+
+                </div>
+                
+                <div id="but-place">
+                    <input type="submit" value="Submit" id="sub-but">
+                </div>
+
+            </form>
+
+        </div>
+        
+    </main>
+
+
+    
+</body>
+</html>
